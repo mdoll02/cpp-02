@@ -35,10 +35,10 @@ public:
 	Fixed operator/(const Fixed &other) const;
 
 
-	Fixed operator++(int ignored);
-	Fixed operator--(int ignored);
-	Fixed &operator++();
-	Fixed &operator--();
+	Fixed operator++(int ignored); //post
+	Fixed operator--(int ignored); //post
+	Fixed operator++(); //pre
+	Fixed operator--(); //pre
 
 	static Fixed &min(Fixed &a, Fixed &b);
 	static const Fixed &min(Fixed const &a, Fixed const &b);

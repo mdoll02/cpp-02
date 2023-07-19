@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// Nan, 0, 1.0, inf
-
 #include "Fixed.hpp"
 
 const int Fixed::_fractBits = 8;
@@ -28,21 +26,6 @@ Fixed::Fixed(const Fixed &other) {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
-
-
-// -------------- NEW --------------
-
-Fixed::Fixed(const int number) {
-	std::cout << "Int constructor called" << std::endl;
-	_numberVal = number << _fractBits;
-}
-
-Fixed::Fixed(const float number) {
-	std::cout << "Float constructor called" << std::endl;
-	_numberVal = static_cast<int>(number * (1 << _fractBits));
-}
-
-// -------------- END NEW --------------
 
 Fixed &Fixed::operator=(const Fixed &other) {
 	std::cout << "Copy constructor called" << std::endl;
@@ -63,6 +46,16 @@ void Fixed::setRawBits(int const raw) {
 }
 
 // -------------- NEW --------------
+
+Fixed::Fixed(const int number) {
+	std::cout << "Int constructor called" << std::endl;
+	_numberVal = number << _fractBits;
+}
+
+Fixed::Fixed(const float number) {
+	std::cout << "Float constructor called" << std::endl;
+	_numberVal = static_cast<int>(number * (1 << _fractBits));
+}
 
 int Fixed::toInt() const {
 	return _numberVal >> _fractBits;
