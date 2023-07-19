@@ -97,33 +97,30 @@ bool Fixed::operator!=(const Fixed &other) const {
 }
 
 Fixed Fixed::operator+(const Fixed &other) const {
-	Fixed ret;
-	ret.setRawBits(this->_numberVal + other._numberVal);
+	Fixed ret((this->toFloat() + other.toFloat()));
 	return ret;
 }
 
 Fixed Fixed::operator-(const Fixed &other) const {
-	Fixed ret;
-	ret.setRawBits(this->_numberVal - other._numberVal);
+	Fixed ret((this->toFloat() - other.toFloat()));
 	return ret;
 }
 
 Fixed Fixed::operator*(const Fixed &other) const {
-	Fixed ret;
-	ret.setRawBits(this->_numberVal * other._numberVal);
+	Fixed ret((this->toFloat() * other.toFloat()));
 	return ret;
 }
 
 Fixed Fixed::operator/(const Fixed &other) const {
-	Fixed ret;
-	ret.setRawBits(this->_numberVal / other._numberVal);
+	Fixed ret((this->toFloat() / other.toFloat()));
 	return ret;
 }
 
 Fixed Fixed::operator++(int ignored) {
 	(void)ignored;
-	this->_numberVal++;
-	return *this;
+	Fixed tmp(*this);
+	--(*this);
+	return tmp;
 }
 
 Fixed Fixed::operator--(int ignored) {
@@ -133,12 +130,12 @@ Fixed Fixed::operator--(int ignored) {
 	return tmp;
 }
 
-Fixed &Fixed::operator++() {
+Fixed Fixed::operator++() {
 	this->_numberVal++;
 	return *this;
 }
 
-Fixed &Fixed::operator--() {
+Fixed Fixed::operator--() {
 	this->_numberVal++;
 	return *this;
 }
