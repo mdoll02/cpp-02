@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 #include <iostream>
 
 class Fixed {
@@ -36,3 +39,5 @@ private:
 };
 
 std::ostream &operator<<(std::ostream &out, Fixed const &fixed);
+
+#endif

@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 class Fixed {
 public:
 	// Default constructor
@@ -33,3 +36,5 @@ private:
 	int _numberVal;
 	static const int _fractBits;
 };
+
+#endif
