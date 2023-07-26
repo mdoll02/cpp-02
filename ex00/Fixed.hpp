@@ -27,7 +27,7 @@ public:
 	// Copy assignment operator
 	Fixed &operator=(const Fixed &other);
 
-	int getRawBits(void) const;
+	int getRawBits() const;
 
 	void setRawBits(int const raw);
 

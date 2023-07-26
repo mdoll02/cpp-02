@@ -19,13 +19,13 @@ class Fixed {
 public:
 	Fixed();
 	~Fixed();
-	Fixed(const int number);
-	Fixed(const float number);
-	Fixed(const Fixed &other);
+	explicit Fixed(int const number);
+	explicit Fixed(float const number);
+	Fixed(const Fixed &other)	;
 
 	Fixed &operator=(const Fixed &other);
 
-	int getRawBits(void) const;
+	int getRawBits() const;
 	void setRawBits(int const raw);
 
 
@@ -33,7 +33,6 @@ public:
 	float toFloat() const;
 
 private:
-	// Private members and methods
 	int _numberVal;
 	static const int _fractBits;
 };
