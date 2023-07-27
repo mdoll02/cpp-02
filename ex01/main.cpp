@@ -20,12 +20,12 @@ int main() {
 	Fixed const c(-42.42f);
 	Fixed const d(b);
 
-	a = Fixed( 1234.4321f );
+	a = Fixed( 1234.4322663631f );
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
+	std::cout << "a was 1234.4322663631f and now is " << a << std::endl;
+	std::cout << "b was 10 and now is " << b << std::endl;
+	std::cout << "c was -42.42f and now is " << c << std::endl;
+	std::cout << "d was 10 and now is " << d << std::endl;
 	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;

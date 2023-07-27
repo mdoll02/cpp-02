@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 
 const int Fixed::_fractBits = 8;
 
@@ -56,7 +57,7 @@ std::ostream &operator<<(std::ostream &out, Fixed const &fixed) {
 
 // ---------------------------------
 
-int Fixed::getRawBits(void) const {
+int Fixed::getRawBits() const {
 	//std::cout << "getRawBits member function called" << std::endl;
 	return _numberVal;
 }
@@ -72,6 +73,6 @@ int Fixed::toInt() const {
 	return _numberVal >> _fractBits;
 }
 
-float Fixed::toFloat() const{
-	return static_cast<float>(_numberVal) / (1 << _fractBits);
+float Fixed::toFloat() const {
+	return roundf(static_cast<float>(_numberVal)) / (1 << _fractBits);
 }

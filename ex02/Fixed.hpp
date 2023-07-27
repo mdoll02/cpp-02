@@ -38,8 +38,8 @@ public:
 	Fixed operator/(const Fixed &other) const;
 
 
-	Fixed operator++(int ignored); //post
-	Fixed operator--(int ignored); //post
+	Fixed operator++(int); //post
+	Fixed operator--(int); //post
 	Fixed operator++(); //pre
 	Fixed operator--(); //pre
 

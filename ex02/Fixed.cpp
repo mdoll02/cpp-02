@@ -10,9 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// Nan, 0, 1.0, inf
-
 #include "Fixed.hpp"
+#include <cmath>
 
 const int Fixed::_fractBits = 8;
 
@@ -97,15 +96,13 @@ Fixed Fixed::operator/(const Fixed &other) const {
 	return ret;
 }
 
-Fixed Fixed::operator++(int ignored) {
-	(void)ignored;
+Fixed Fixed::operator++(int) {
 	Fixed tmp(*this);
-	--(*this);
+	++(*this);
 	return tmp;
 }
 
-Fixed Fixed::operator--(int ignored) {
-	(void)ignored;
+Fixed Fixed::operator--(int) {
 	Fixed tmp(*this);
 	--(*this);
 	return tmp;
@@ -117,7 +114,7 @@ Fixed Fixed::operator++() {
 }
 
 Fixed Fixed::operator--() {
-	this->_numberVal++;
+	this->_numberVal--;
 	return *this;
 }
 
@@ -137,10 +134,9 @@ int Fixed::toInt() const {
 	return _numberVal >> _fractBits;
 }
 
-float Fixed::toFloat() const{
-	return static_cast<float>(_numberVal) / (1 << _fractBits);
+float Fixed::toFloat() const {
+	return roundf(static_cast<float>(_numberVal)) / (1 << _fractBits);
 }
-
 // ----------------- NEW ZONE -----------------
 
 
